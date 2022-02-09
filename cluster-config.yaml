@@ -1,0 +1,28 @@
+cluster_name: cifar10
+
+max_workers: 8
+
+provider:
+    type: aws
+    region: us-west-1
+
+available_node_types:
+    cpu-node:
+        min_workers: 0
+        max_workers: 0
+        node_config:
+            InstanceType: m5.4xlarge
+        resources: {}
+    1-gpu-node:
+        min_workers: 8
+        max_workers: 8
+        node_config:
+            InstanceType: g4dn.xlarge
+            InstanceMarketOptions:
+                MarketType: spot
+        resources: {}
+
+head_node_type: cpu-node
+
+setup_commands:
+    - pip install ray[default] torch torchvision

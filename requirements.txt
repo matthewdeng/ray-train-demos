@@ -1,0 +1,6 @@
+ray
+torch
+torchvision
+tensorboardX
+boto3
+matplotlib
